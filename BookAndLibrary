@@ -1,0 +1,36 @@
+import java.util.*;
+
+// Unnati Waghe
+
+class Book {
+    String title, author, isbn;
+
+    Book(String t, String a, String i) {
+        title = t;
+        author = a;
+        isbn = i;
+    }
+}
+
+class Library {
+    ArrayList<Book> books = new ArrayList<>();
+
+    void add(Book b) {
+        books.add(b);
+    }
+
+    void remove(String isbn) {
+        books.removeIf(b -> b.isbn.equals(isbn));
+    }
+
+    void display() {
+        for (Book b : books)
+            System.out.println(b.title + " " + b.author + " " + b.isbn);
+    }
+
+    public static void main(String[] args) {
+        Library l = new Library();
+        l.add(new Book("Java", "James", "101"));
+        l.display();
+    }
+}
